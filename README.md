@@ -1,7 +1,7 @@
 ```js
 import make from 'poll';
 
-const ping = make(fetch('/ping'), {
+const ping = make(() => fetch('/ping'), {
   interval: 5000, // fetch every 5 sec
   timeout: 20000, // don't wait for more than 20 sec
   onSuccess: console.log,
@@ -12,7 +12,7 @@ ping.start();
 
 ```js
 let counter = 0;
-const ping = poll(fetch('https://jsonplaceholder.typicode.com/todos/1'), {
+const ping = make(() => fetch('https://jsonplaceholder.typicode.com/todos/1'), {
   interval: 5000, // fetch every 5 sec
   timeout: 20000, // don't wait for more than 20 sec
   onSuccess: () => {
@@ -27,4 +27,17 @@ const ping = poll(fetch('https://jsonplaceholder.typicode.com/todos/1'), {
   onError: console.error
 });
 ping.start();
+```
+
+```js
+import make from 'poll';
+
+const instance = make({
+  fn: () => Promise.resolve(true),
+  interval: 1000,
+  onSuccess: console.log,
+  onError: console.error
+});
+
+instance.start();
 ```

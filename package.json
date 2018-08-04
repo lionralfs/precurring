@@ -4,8 +4,9 @@
   "description": "",
   "main": "dist/poll.js",
   "umd:main": "dist/poll.umd.js",
-  "module": "dist/poll.m.js",
+  "module": "dist/poll.mjs",
   "source": "src/index.js",
+  "typings": "typings.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist/ && microbundle",

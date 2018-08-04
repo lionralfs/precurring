@@ -20,7 +20,7 @@ function wait(time) {
  *
  * @returns {Promise}
  */
-function fetchWithTimeout(fn, timeout) {
+function callWithTimeout(fn, timeout) {
   let didTimeOut = false;
 
   return new Promise((resolve, reject) => {
@@ -68,7 +68,7 @@ export default function({ fn, interval, timeout, onSuccess, onError }) {
     start: () => {
       running = true;
       (function run() {
-        fetchWithTimeout(fn, timeout)
+        callWithTimeout(fn, timeout)
           .then(res => {
             if (running) {
               onSuccess(res);

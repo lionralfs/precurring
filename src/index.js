@@ -15,11 +15,10 @@ function wait(time) {
  * Based on David Walsh's "JavaScript fetch with Timeout"
  * @see {@link https://davidwalsh.name/fetch-timeout}
  *
- * @template K
- * @param {<K>() => Promise<K>} fn
+ * @param {() => Promise} fn
  * @param {number} [timeout]
  *
- * @returns {Promise<K>}
+ * @returns {Promise}
  */
 function fetchWithTimeout(fn, timeout) {
   let didTimeOut = false;
@@ -52,7 +51,7 @@ function fetchWithTimeout(fn, timeout) {
 /**
  * Creates a new polling instance
  * @param {object} options An options object
- * @param {<K>() => Promise<K>} options.fn A promise
+ * @param {() => Promise} options.fn A promise
  * @param {number} options.interval Time in ms representing the time span between the promise resolving and the next one firing
  * @param {number} options.timeout The maximum amount of time in ms which the promise is allowed to take
  * @param {(value: any) => any} options.onSuccess The success callback

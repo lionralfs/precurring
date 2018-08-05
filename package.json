@@ -1,10 +1,10 @@
 {
-  "name": "go-on",
+  "name": "precurring",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/go-on.js",
-  "umd:main": "dist/go-on.umd.js",
-  "module": "dist/go-on.mjs",
+  "main": "dist/precurring.js",
+  "umd:main": "dist/precurring.umd.js",
+  "module": "dist/precurring.mjs",
   "source": "src/index.js",
   "typings": "typings.d.ts",
   "scripts": {
@@ -19,12 +19,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lionralfs/go-on.git"
+    "url": "git+https://github.com/lionralfs/precurring.git"
   },
   "bugs": {
-    "url": "https://github.com/lionralfs/go-on/issues"
+    "url": "https://github.com/lionralfs/precurring/issues"
   },
-  "homepage": "https://github.com/lionralfs/go-on#readme",
+  "homepage": "https://github.com/lionralfs/precurring#readme",
   "author": "Lion Ralfs <lion.ralfs@gmail.com> (https://github.com/lionralfs)",
   "license": "MIT",
   "devDependencies": {
@@ -33,6 +33,11 @@
     "jest": "^23.4.2",
     "microbundle": "^0.6.0"
   },
+  "files": [
+    "src",
+    "dist",
+    "typings.d.ts"
+  ],
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/"

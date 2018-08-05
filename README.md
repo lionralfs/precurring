@@ -1,29 +1,29 @@
-# Go on
+# Precurring
 
-[![size](https://img.badgesize.io/https://unpkg.com/go-on/dist/go-on.js)](https://unpkg.com/go-on/dist/go-on.js)
-[![npm](https://img.shields.io/npm/v/go-on.svg)](https://www.npmjs.com/package/go-on)
-[![Build Status](https://travis-ci.com/lionralfs/go-on.svg?branch=master)](https://travis-ci.com/lionralfs/go-on)
+[![size](https://img.badgesize.io/https://unpkg.com/precurring/dist/precurring.js)](https://unpkg.com/precurring/dist/precurring.js)
+[![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
+[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)
 
 ## Installation
 
 ```sh
-npm install --save go-on
+npm install --save precurring
 ```
 
 Alternatively, the UMD build is available on unpkg:
 
 ```html
-<script src="https://unpkg.com/go-on/dist/go-on.umd.js"></script>
+<script src="https://unpkg.com/precurring/dist/precurring.umd.js"></script>
 ```
 
-You can find the library on `window.goOn`.
+You can find the library on `window.precurring`.
 
 ## Usage
 
 ### Pinging a server
 
 ```js
-import make from 'go-on';
+import make from 'precurring';
 
 const ping = make({
   fn: () => fetch('/ping'),
@@ -39,7 +39,7 @@ ping.start();
 ### Stopping after X errors
 
 ```js
-import make from 'go-on';
+import make from 'precurring';
 
 let counter = 0;
 

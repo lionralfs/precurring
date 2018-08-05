@@ -10,6 +10,14 @@
 npm install --save go-on
 ```
 
+Alternatively, the UMD build is available on unpkg:
+
+```html
+<script src="https://unpkg.com/go-on/dist/go-on.umd.js"></script>
+```
+
+You can find the library on `window.goOn`.
+
 ## Usage
 
 ### Pinging a server
@@ -26,6 +34,25 @@ const ping = make({
 });
 
 ping.start();
+```
+
+### Stopping after X errors
+
+```js
+import make from 'go-on';
+
+let counter = 0;
+
+const instance = make({
+  fn: myFunction, // make sure it returns a promise
+  interval: 1000,
+  onSuccess: console.log,
+  onError: () => {
+    if (++counter === 3) {
+      instance.stop();
+    }
+  }
+});
 ```
 
 ## License

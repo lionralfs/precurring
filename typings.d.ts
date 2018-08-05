@@ -1,4 +1,4 @@
-export default function make<K>(options: Options<K>): PollController;
+export default function make<K>(options: Options<K>): Controller;
 
 type Fn<K> = () => Promise<K>;
 type SuccessCallback<K> = (value: K) => any
@@ -12,7 +12,7 @@ type Options<K> = {
   onError: ErrorCallback<K>
 }
 
-type PollController = {
+type Controller = {
   start: () => void;
   stop: () => void;
 }

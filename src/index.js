@@ -49,7 +49,7 @@ function callWithTimeout(fn, timeout) {
 }
 
 /**
- * Creates a new polling instance
+ * Creates a new instance
  * @param {object} options An options object
  * @param {() => Promise} options.fn A promise
  * @param {number} options.interval Time in ms representing the time span between the promise resolving and the next one firing

@@ -1,5 +1,13 @@
+# Go on
+
+## Installation
+
+```sh
+npm install --save go-on
+```
+
 ```js
-import make from 'poll';
+import make from 'go-on';
 
 const ping = make({
   fn: () => fetch('/ping'),
@@ -8,10 +16,13 @@ const ping = make({
   onSuccess: console.log,
   onError: console.error
 });
+
 ping.start();
 ```
 
 ```js
+import make from 'go-on';
+
 let counter = 0;
 const ping = make({
   fn: () => fetch('https://jsonplaceholder.typicode.com/todos/1'),
@@ -28,11 +39,12 @@ const ping = make({
   },
   onError: console.error
 });
+
 ping.start();
 ```
 
 ```js
-import make from 'poll';
+import make from 'go-on';
 
 const instance = make({
   fn: () => Promise.resolve(true),

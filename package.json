@@ -1,10 +1,10 @@
 {
-  "name": "poll",
+  "name": "go-on",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/poll.js",
-  "umd:main": "dist/poll.umd.js",
-  "module": "dist/poll.mjs",
+  "main": "dist/go-on.js",
+  "umd:main": "dist/go-on.umd.js",
+  "module": "dist/go-on.mjs",
   "source": "src/index.js",
   "typings": "typings.d.ts",
   "scripts": {

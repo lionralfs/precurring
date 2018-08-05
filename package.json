@@ -12,7 +12,19 @@
     "build": "rm -rf dist/ && microbundle",
     "dev": "rm -rf dist/ && microbundle watch"
   },
-  "keywords": [],
+  "keywords": [
+    "polling",
+    "promise",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lionralfs/go-on.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lionralfs/go-on/issues"
+  },
+  "homepage": "https://github.com/lionralfs/go-on#readme",
   "author": "Lion Ralfs <lion.ralfs@gmail.com> (https://github.com/lionralfs)",
   "license": "MIT",
   "devDependencies": {

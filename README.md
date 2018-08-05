@@ -53,6 +53,8 @@ const instance = make({
     }
   }
 });
+
+instance.start();
 ```
 
 ## License

@@ -1,6 +1,5 @@
 # Precurring
 
-[![size](https://img.badgesize.io/https://unpkg.com/precurring/dist/precurring.js)](https://unpkg.com/precurring/dist/precurring.js)
 [![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
 [![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)
 

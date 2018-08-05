@@ -59,8 +59,43 @@ describe('make()', () => {
     expect(onError).toBeCalledWith('some-reason');
   });
 
-  it('should allow 2 instances', () => {
-    // TODO
+  it('should allow 2 instances', async () => {
+    const mockPromise1 = jest.fn(() => Promise.resolve('some-value'));
+    const mockPromise2 = jest.fn(() => Promise.resolve('some-other-value'));
+    const onSuccess1 = jest.fn();
+    const onSuccess2 = jest.fn();
+
+    const instance1 = make({
+      fn: mockPromise1,
+      interval: 1000,
+      onSuccess: onSuccess1,
+      onError: noop
+    });
+
+    const instance2 = make({
+      fn: mockPromise2,
+      interval: 1000,
+      onSuccess: onSuccess2,
+      onError: noop
+    });
+
+    instance1.start();
+    await jest.runOnlyPendingTimers();
+    await flushPromises();
+    expect(mockPromise1).toHaveBeenCalledTimes(1);
+    expect(mockPromise2).not.toBeCalled();
+    expect(onSuccess1).toBeCalledWith('some-value');
+    expect(onSuccess2).not.toBeCalled();
+
+    instance2.start();
+    await jest.runOnlyPendingTimers();
+    await flushPromises();
+    expect(mockPromise2).toHaveBeenCalledTimes(1);
+    expect(onSuccess2).toBeCalledWith('some-other-value');
+
+    // make sure the other has also been called
+    expect(onSuccess1).toHaveBeenCalledTimes(2);
+    expect(mockPromise1).toHaveBeenCalledTimes(2);
   });
 
   it('should call onError() with an error when the promise times out', async () => {

@@ -1,12 +1,12 @@
-import make from '../src';
+import precurring from '../src';
 
 jest.useFakeTimers();
 const noop = () => {};
 const flushPromises = () => new Promise(setImmediate);
 
-describe('make()', () => {
+describe('create instance', () => {
   it('should be instantiable', () => {
-    const instance = make({
+    const instance = precurring({
       fn: noop,
       interval: 1000,
       onSuccess: noop,
@@ -23,7 +23,7 @@ describe('make()', () => {
     const mockPromise = jest.fn(() => Promise.resolve('some-value'));
     const onSuccess = jest.fn();
 
-    const instance = make({
+    const instance = precurring({
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,
@@ -43,7 +43,7 @@ describe('make()', () => {
     const mockPromise = jest.fn(() => Promise.reject('some-reason'));
     const onError = jest.fn();
 
-    const instance = make({
+    const instance = precurring({
       fn: mockPromise,
       interval: 1000,
       onSuccess: noop,
@@ -65,14 +65,14 @@ describe('make()', () => {
     const onSuccess1 = jest.fn();
     const onSuccess2 = jest.fn();
 
-    const instance1 = make({
+    const instance1 = precurring({
       fn: mockPromise1,
       interval: 1000,
       onSuccess: onSuccess1,
       onError: noop
     });
 
-    const instance2 = make({
+    const instance2 = precurring({
       fn: mockPromise2,
       interval: 1000,
       onSuccess: onSuccess2,
@@ -93,7 +93,7 @@ describe('make()', () => {
     expect(mockPromise2).toHaveBeenCalledTimes(1);
     expect(onSuccess2).toBeCalledWith('some-other-value');
 
-    // make sure the other has also been called
+    // precurring sure the other has also been called
     expect(onSuccess1).toHaveBeenCalledTimes(2);
     expect(mockPromise1).toHaveBeenCalledTimes(2);
   });
@@ -102,7 +102,7 @@ describe('make()', () => {
     const mockPromise = jest.fn(() => Promise.reject('some-reason'));
     const onError = jest.fn();
 
-    const instance = make({
+    const instance = precurring({
       fn: mockPromise,
       interval: 1000,
       timeout: 100,
@@ -123,7 +123,7 @@ describe('make()', () => {
     const mockPromise = jest.fn(() => Promise.resolve('some-value'));
     const onSuccess = jest.fn();
 
-    const instance = make({
+    const instance = precurring({
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,
@@ -145,7 +145,7 @@ describe('make()', () => {
     const mockPromise = jest.fn(() => Promise.resolve('some-value'));
     const onSuccess = jest.fn();
 
-    const instance = make({
+    const instance = precurring({
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,

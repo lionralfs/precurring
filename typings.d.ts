@@ -1,12 +1,12 @@
 export default function make<K>(options: Options<K>): Controller;
 
-type Fn<K> = () => Promise<K>;
+type Fn<K> = (...args?: any[]) => Promise<K>;
 type SuccessCallback<K> = (value: K) => any
 type ErrorCallback<K> = (reason: K | Error) => any
 
 type Options<K> = {
   fn: Fn<K>,
-  timeout: number,
+  timeout?: number,
   interval?: number,
   onSuccess: SuccessCallback<K>,
   onError: ErrorCallback<K>

@@ -17,17 +17,17 @@ Alternatively, the UMD build is available on unpkg:
 
 You can find the library on `window.precurring`.
 
-## Usage
+## Examples
 
 ### Pinging a server
 
 ```js
-import make from 'precurring';
+import precurring from 'precurring';
 
-const ping = make({
+const ping = precurring({
   fn: () => fetch('/ping'),
   interval: 5000, // fetch every 5 sec
-  timeout: 20000, // wait 20 sec max
+  timeout: 20000, // wait 20 sec max (optional)
   onSuccess: console.log,
   onError: console.error
 });
@@ -38,12 +38,12 @@ ping.start();
 ### Stopping after X errors
 
 ```js
-import make from 'precurring';
+import precurring from 'precurring';
 
 let counter = 0;
 
-const instance = make({
-  fn: myFunction, // make sure it returns a promise
+const instance = precurring({
+  fn: myFunction, // make sure it returns something ".then-able"
   interval: 1000,
   onSuccess: console.log,
   onError: () => {

@@ -1,4 +1,4 @@
-# Precurring
+# `precurring` - Recurring Promises
 
 [![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
 [![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)

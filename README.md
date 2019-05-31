@@ -1,7 +1,7 @@
 # `precurring` - Recurring Promises
 
 [![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
-[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)
+[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring) [![Greenkeeper badge](https://badges.greenkeeper.io/lionralfs/precurring.svg)](https://greenkeeper.io/)
 
 ## Installation
 

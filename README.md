@@ -28,7 +28,7 @@ import precurring from 'precurring';
 // in Node.js (CommonJS):
 const precurring = require('precurring');
 
-// in typescript, do this:
+// in TypeScript, do this:
 import precurring = require('precurring');
 // or, when esModuleInterop is set to true, you can do:
 import precurring from 'precurring';

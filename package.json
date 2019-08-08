@@ -1,6 +1,6 @@
 {
   "name": "precurring",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny 280 byte library for recurring Promises",
   "main": "dist/precurring.js",
   "umd:main": "dist/precurring.umd.js",

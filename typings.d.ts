@@ -1,6 +1,6 @@
 export default function make<K>(options: Options<K>): Controller;
 
-type Fn<K> = (...args?: any[]) => Promise<K>;
+type Fn<K> = (...args: any[]) => Promise<K>;
 type SuccessCallback<K> = (value: K) => any
 type ErrorCallback<K> = (reason: K | Error) => any
 

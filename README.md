@@ -1,7 +1,7 @@
 # `precurring` - Recurring Promises
 
 [![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
-[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring) 
+[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lionralfs/precurring.svg)](https://greenkeeper.io/)
 
 ## Installation
@@ -23,6 +23,14 @@ You can find the library on `window.precurring`.
 ### Pinging a server
 
 ```js
+// in JavaScript (ESModules):
+import precurring from 'precurring';
+// in Node.js (CommonJS):
+const precurring = require('precurring');
+
+// in typescript, do this:
+import precurring = require('precurring');
+// or, when esModuleInterop is set to true, you can do:
 import precurring from 'precurring';
 
 const ping = precurring({

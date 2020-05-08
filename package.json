@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.8.2",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.12.0"
   },
   "files": [
     "src",

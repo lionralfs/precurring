@@ -10,12 +10,12 @@ describe('create instance', () => {
       fn: noop,
       interval: 1000,
       onSuccess: noop,
-      onError: noop
+      onError: noop,
     });
 
     expect(instance).toMatchObject({
       start: expect.any(Function),
-      stop: expect.any(Function)
+      stop: expect.any(Function),
     });
   });
 
@@ -27,7 +27,7 @@ describe('create instance', () => {
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,
-      onError: noop
+      onError: noop,
     });
 
     expect(onSuccess).not.toBeCalled();
@@ -47,7 +47,7 @@ describe('create instance', () => {
       fn: mockPromise,
       interval: 1000,
       onSuccess: noop,
-      onError: onError
+      onError: onError,
     });
 
     expect(onError).not.toBeCalled();
@@ -69,14 +69,14 @@ describe('create instance', () => {
       fn: mockPromise1,
       interval: 1000,
       onSuccess: onSuccess1,
-      onError: noop
+      onError: noop,
     });
 
     const instance2 = precurring({
       fn: mockPromise2,
       interval: 1000,
       onSuccess: onSuccess2,
-      onError: noop
+      onError: noop,
     });
 
     instance1.start();
@@ -107,7 +107,7 @@ describe('create instance', () => {
       interval: 1000,
       timeout: 100,
       onSuccess: noop,
-      onError: onError
+      onError: onError,
     });
 
     expect(onError).not.toBeCalled();
@@ -127,7 +127,7 @@ describe('create instance', () => {
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,
-      onError: noop
+      onError: noop,
     });
 
     expect(onSuccess).not.toBeCalled();
@@ -149,7 +149,7 @@ describe('create instance', () => {
       fn: mockPromise,
       interval: 1000,
       onSuccess: onSuccess,
-      onError: noop
+      onError: noop,
     });
 
     expect(onSuccess).not.toBeCalled();
@@ -168,5 +168,36 @@ describe('create instance', () => {
     await jest.runOnlyPendingTimers();
     await flushPromises();
     expect(onSuccess).toHaveBeenCalledTimes(3);
+  });
+
+  it('should not call fn another time after being stopped', async () => {
+    let instance;
+
+    const mockPromise = jest.fn(() => {
+      setTimeout(() => {
+        instance.stop();
+      }, 100);
+      return Promise.resolve('some-value');
+    });
+    const onSuccess = jest.fn();
+
+    instance = precurring({
+      fn: mockPromise,
+      interval: 1000,
+      onSuccess: onSuccess,
+      onError: noop,
+    });
+
+    instance.start();
+    await flushPromises();
+    expect(mockPromise).toHaveBeenCalledTimes(1);
+    expect(onSuccess).toHaveBeenCalledTimes(1);
+    await jest.runOnlyPendingTimers();
+    await flushPromises();
+    await jest.runOnlyPendingTimers();
+    await flushPromises();
+    await jest.runOnlyPendingTimers();
+    await flushPromises();
+    expect(mockPromise).toHaveBeenCalledTimes(1);
   });
 });

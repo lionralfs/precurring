@@ -6,7 +6,7 @@
  * @returns {Promise<void>}
  */
 function wait(time) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, time);
   });
 }
@@ -32,14 +32,14 @@ function callWithTimeout(fn, timeout) {
       }, timeout);
 
     fn()
-      .then(response => {
+      .then((response) => {
         // Clear the timeout as cleanup
         clearTimeout(timer);
         if (!didTimeOut) {
           resolve(response);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         // Rejection already happened with setTimeout
         if (didTimeOut) return;
         // Reject with error
@@ -59,7 +59,7 @@ function callWithTimeout(fn, timeout) {
  *
  * @returns {{start: () => void, stop: () => void}}
  */
-export default function({ fn, interval, timeout, onSuccess, onError }) {
+export default function ({ fn, interval, timeout, onSuccess, onError }) {
   let running = false;
   return {
     /**
@@ -68,14 +68,16 @@ export default function({ fn, interval, timeout, onSuccess, onError }) {
     start: () => {
       running = true;
       (function run() {
+        if (!running) return;
+        
         callWithTimeout(fn, timeout)
-          .then(res => {
+          .then((res) => {
             if (running) {
               onSuccess(res);
               wait(interval).then(run);
             }
           })
-          .catch(err => {
+          .catch((err) => {
             if (running) {
               onError(err);
               wait(interval).then(run);
@@ -88,6 +90,6 @@ export default function({ fn, interval, timeout, onSuccess, onError }) {
      */
     stop: () => {
       running = false;
-    }
+    },
   };
 }

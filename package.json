@@ -9,7 +9,7 @@
   "typings": "typings.d.ts",
   "scripts": {
     "test": "npm run build && jest",
-    "build": "rm -rf dist/ && microbundle",
+    "build": "rm -rf dist/ && microbundle --generateTypes=false src/index.js",
     "dev": "rm -rf dist/ && microbundle watch"
   },
   "keywords": [
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.2",
     "jest": "^26.6.3",
-    "microbundle": "^0.13.0"
+    "microbundle": "^0.13.3"
   },
   "files": [
     "src",

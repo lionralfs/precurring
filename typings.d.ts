@@ -1,7 +1,7 @@
 declare function make<K>(options: Options<K>): Controller;
 
 declare module 'precurring' {
-  export = make;
+  export default make;
 }
 
 type Fn<K> = (...args: any[]) => Promise<K>;

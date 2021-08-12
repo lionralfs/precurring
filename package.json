@@ -6,10 +6,10 @@
   "umd:main": "dist/precurring.umd.js",
   "module": "dist/precurring.mjs",
   "source": "src/index.js",
-  "typings": "typings.d.ts",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "npm run build && jest",
-    "build": "rm -rf dist/ && microbundle --generateTypes=false src/index.js",
+    "build": "rm -rf dist/ && microbundle src/index.js",
     "dev": "rm -rf dist/ && microbundle watch"
   },
   "keywords": [
@@ -35,7 +35,7 @@
   "files": [
     "src",
     "dist",
-    "typings.d.ts"
+    "index.d.ts"
   ],
   "jest": {
     "verbose": true,

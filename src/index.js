@@ -49,27 +49,38 @@ function callWithTimeout(fn, timeout) {
 }
 
 /**
- * Creates a new instance
- * @param {object} options An options object
- * @param {() => Promise} options.fn A promise
- * @param {number} options.interval Time in ms representing the time span between the promise resolving and the next one firing
- * @param {number} options.timeout The maximum amount of time in ms which the promise is allowed to take
- * @param {(value: any) => any} options.onSuccess The success callback
- * @param {(reason: any) => any} options.onError The error callback
+ * @typedef {Object} PrecurringController
+ * @property {() => void} start Starts the interval
+ * @property {() => void} stop Stops the interval
+ */
+
+/**
+ * @template K
+ * @typedef {Object} PrecurringOptions
+ * @property {(...args: any[]) => Promise<K>} fn The function you want to repeatedly call, returning a Promise
+ * @property {number} interval Time in ms representing the time span between the last Promise settling and the next one firing
+ * @property {number} [timeout] The maximum amount of time in ms which the promise is allowed to take
+ * @property {(value: K) => any} onSuccess The success callback
+ * @property {(reason: K | Error) => any} onError The error callback
+ */
+
+/**
+ * @function
+ * @template K
  *
- * @returns {{start: () => void, stop: () => void}}
+ * Creates a new instance
+ * @param {PrecurringOptions<K>} options An options object
+ *
+ * @returns {PrecurringController}
  */
 export default function ({ fn, interval, timeout, onSuccess, onError }) {
   let running = false;
   return {
-    /**
-     * Starts the interval
-     */
     start: () => {
       running = true;
       (function run() {
         if (!running) return;
-        
+
         callWithTimeout(fn, timeout)
           .then((res) => {
             if (running) {
@@ -85,9 +96,6 @@ export default function ({ fn, interval, timeout, onSuccess, onError }) {
           });
       })();
     },
-    /**
-     * Stops the interval
-     */
     stop: () => {
       running = false;
     },

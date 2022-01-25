@@ -1,7 +1,7 @@
 # `precurring` - Recurring Promises
 
 [![npm](https://img.shields.io/npm/v/precurring.svg)](https://www.npmjs.com/package/precurring)
-[![Build Status](https://travis-ci.com/lionralfs/precurring.svg?branch=master)](https://travis-ci.com/lionralfs/precurring)
+![build status](https://github.com/lionralfs/precurring/actions/workflows/main.yml/badge.svg)
 
 ## Installation
 

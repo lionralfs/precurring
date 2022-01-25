@@ -25,7 +25,7 @@
     "url": "https://github.com/lionralfs/precurring/issues"
   },
   "homepage": "https://github.com/lionralfs/precurring#readme",
-  "author": "Lion Ralfs <lion.ralfs@gmail.com> (https://github.com/lionralfs)",
+  "author": "Lion Ralfs <lion.ralfs@gmail.com> (https://lionralfs.dev/)",
   "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.10.2",

@@ -10,7 +10,7 @@
  * @property {number} interval Time in ms representing the time span between the last Promise settling and the next one firing
  * @property {number} [timeout] The maximum amount of time in ms which the promise is allowed to take
  * @property {(value: K) => any} onSuccess The success callback
- * @property {(reason: K | Error) => any} onError The error callback
+ * @property {(reason: K | Error) => any} onError The error callback
  */
 /**
  * @function

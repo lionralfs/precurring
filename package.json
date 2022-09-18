@@ -38,8 +38,7 @@
     "index.d.ts"
   ],
   "jest": {
-    "verbose": true,
-    "testURL": "http://localhost/"
+    "verbose": true
   },
   "babel": {
     "presets": [

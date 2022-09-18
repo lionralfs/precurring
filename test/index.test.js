@@ -1,7 +1,9 @@
 import precurring from '../src';
+import { setImmediate } from 'timers';
 
 jest.useFakeTimers();
 const noop = () => {};
+// see https://stackoverflow.com/a/72101786/6596135
 const flushPromises = () => new Promise(setImmediate);
 
 describe('create instance', () => {
